@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MeteoApp.Models;
+using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -33,6 +35,21 @@ namespace MeteoApp
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        static LocationsDatabase database;
+
+        static LocationsDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new LocationsDatabase(
+                      Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TodoSQLite.db3"));
+                }
+                return database;
+            }
         }
     }
 }

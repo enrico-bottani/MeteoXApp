@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -20,7 +20,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Location.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\LocationsDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\NotificationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MeteoListPage.xaml.cs">
       <DependentUpon>MeteoListPage.xaml</DependentUpon>
     </Compile>
@@ -31,7 +34,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\_BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
   </ItemGroup>
