@@ -1,12 +1,10 @@
-﻿using Android;
-using Android.App;
-using Android.Content;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MeteoApp.Models
-{
+{/*
     [Service]
     class NotificationService : Service
     {
@@ -25,5 +23,5 @@ namespace MeteoApp.Models
             var notificationManager = (NotificationManager)GetSystemService(NotificationService);
             notificationManager.Notify(NOTIFICATION_ID, notificationBuilder.Build());
         }
-    }
+    }*/
 }
