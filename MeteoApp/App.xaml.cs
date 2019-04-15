@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.Geolocator;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MeteoApp
@@ -12,7 +13,7 @@ namespace MeteoApp
         public App()
         {
             InitializeComponent();
-
+           
             var nav = new NavigationPage(new MeteoListPage())
             {
                // BarBackgroundColor = Color.LightGreen,
@@ -21,7 +22,7 @@ namespace MeteoApp
 
             MainPage = nav;
         }
-
+       
         protected override void OnStart()
         {
             // Handle when your app starts
