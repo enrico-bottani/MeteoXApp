@@ -3,23 +3,21 @@ using Xamarin.Forms;
 using Plugin.Geolocator;
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xamarin.Forms.Maps;
 namespace MeteoApp
 {
     public partial class MeteoItemPage : ContentPage
     {
         private Location l;
+        Geocoder geocoder;
         public MeteoItemPage()
         {
             InitializeComponent();
             GetLocation();
             l = new Location();
             BindingContext = l;
+            geocoder = new Geocoder();
 
         }
 
@@ -36,11 +34,28 @@ namespace MeteoApp
             Debug.WriteLine("Position Latitude: {0}", position.Latitude);
             Debug.WriteLine("Position Longitude: {0}", position.Longitude);
             Debug.WriteLine("ID: {0}", l.ID);
-           
+            var positions = new Position(position.Latitude, position.Longitude);
+         
+            
+            var possibleAddresses = await geocoder.GetAddressesForPositionAsync(positions);
+            
+            foreach (var address in possibleAddresses)
+            {
+                Debug.WriteLine(address);
+                l.Name = address;
+                Debug.WriteLine("name is"+l.Name);
+                
+            }
+               
+
+
+
+
 
 
         }
-        
+       
+
 
     }
 }
