@@ -16,7 +16,7 @@ namespace MeteoApp
             InitializeComponent();
             GetLocation();
             l = new Location();
-            BindingContext = l;
+            BindingContext = new MeteoItemViewModel(l);
             geocoder = new Geocoder();
 
         }
@@ -46,9 +46,9 @@ namespace MeteoApp
                 Debug.WriteLine("name is"+l.Name);
                 
             }
-               
 
 
+            Debug.WriteLine("nameout is" + l.Name);
 
 
 

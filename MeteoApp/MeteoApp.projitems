@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\LocationsDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\NotificationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MeteoItemViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MeteoListPage.xaml.cs">
       <DependentUpon>MeteoListPage.xaml</DependentUpon>
     </Compile>
@@ -35,6 +36,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
-    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
   </ItemGroup>
 </Project>

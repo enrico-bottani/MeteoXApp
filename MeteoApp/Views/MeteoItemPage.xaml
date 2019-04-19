@@ -12,7 +12,7 @@
                     Android="0, 10, 0, 100" />
             </StackLayout.Margin>
 
-            <Label Text="{Binding Name}"
+            <Label Text="{Binding Location.Name}"
                 FontSize="55"
                 HorizontalOptions="Center" 
                 VerticalOptions="Start" />
