@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,42 +11,71 @@ namespace MeteoApp.Models
     {
         public SQLiteAsyncConnection Database { get; set; } 
 
-        public LocationsDatabase(string dbPath)
+        public LocationsDatabase()
         {
+            var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"Locations.db");
             Database = new SQLiteAsyncConnection(dbPath);
             Database.CreateTableAsync<Location>().Wait();
         }
 
-        public Task<List<Location>> GetItemsAsync()
+        private async Task<List<Location>> GetItemsAsync()
         {
-            return Database.Table<Location>().ToListAsync();
+            return await Database.Table<Location>().ToListAsync();
         }
 
-        public Task<List<Location>> GetItemsNotDoneAsync()
+        private async Task<List<Location>> GetItemsNotDoneAsync()
         {
-            return Database.QueryAsync<Location>("SELECT * FROM [Location] WHERE [Done] = 0");
+            return await Database.QueryAsync<Location>("SELECT * FROM [Location] WHERE [Done] = 0");
         }
 
-        public Task<Location> GetItemAsync(int id)
+        private async Task<Location> GetItemAsync(int id)
         {
-            return Database.Table<Location>().Where(i => i.ID == id).FirstOrDefaultAsync();
+            return await Database.Table<Location>().Where(i => i.ID == id).FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveItemAsync(Location item)
+        private async Task<int> SaveItemAsync(Location item)
         {
             if (item.ID != 0)
             {
-                return Database.UpdateAsync(item);
+                return await Database.UpdateAsync(item);
             }
             else
             {
-                return Database.InsertAsync(item);
+                return await Database.InsertAsync(item);
             }
         }
 
-        public Task<int> DeleteItemAsync(Location item)
+        private async Task<int> DeleteItemAsync(Location item)
         {
-            return Database.DeleteAsync(item);
+            return await Database.DeleteAsync(item);
+        }
+
+        /**
+         * AREA OPERAZIONI API DA USARE IN APP
+         */
+
+        public async Task<List<Location>> GetLocations()
+        {
+            return await Database.Table<Location>().ToListAsync();
+        }
+
+        public async Task<Location> GetLocation(string name)
+        {
+            return await Database.GetAsync<Location>((l) => l.Name.Equals(name));
+        }
+
+        public async void Insert(Location l)
+        {
+            if (Database.GetAsync<Location>((x) => x.Name.Equals(l.Name)) == null)
+                await Database.InsertAsync(l);
+            else
+                await Database.UpdateAsync(l);
+        }
+
+        public async void Delete(string name)
+        {
+            var loc = Database.FindAsync<Location>((l) => l.Name.Equals(name));
+            await Database.DeleteAsync<Location>(loc);
         }
     }
 }
