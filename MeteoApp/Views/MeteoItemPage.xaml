@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MeteoApp.MeteoItemPage">
     <ContentPage.Content>
         <RelativeLayout x:Name="container">
-            <Label Text="{Binding Name}" RelativeLayout.XConstraint="{ConstraintExpression 
+            <!--<Label Text="{Binding Name}" RelativeLayout.XConstraint="{ConstraintExpression 
                         Type=RelativeToParent,
                         Property=Width, 
                         Factor=0.5,
@@ -13,7 +13,28 @@
                         Property=Height,
                         Factor=0.5,
                         Constant=-25}"
-            ></Label>
+            ></Label>-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!--<Label Text="Top Left" Grid.Row="0" Grid.Column="0" />-->
+                <Image Source="{Binding ForecastIcon}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" />
+                <Label Text="{Binding NomeCitta} " Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" />
+                <Label Text="{Binding Temp}" Grid.Row="1" Grid.Column="2" />
+                <Label Text="Massime: " Grid.Row="2" Grid.Column="1" />
+                <Label Text="{Binding MaxTemp}" Grid.Row="2" Grid.Column="2" />
+                <Label Text="Minime: " Grid.Row="3" Grid.Column="1" />
+                <Label Text="{Binding MinTemp}" Grid.Row="3" Grid.Column="2" />
+                <Label Text="{Binding ForecastExtended}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" />
+            </Grid>
         </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
