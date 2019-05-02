@@ -32,9 +32,14 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MeteoListViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\_BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\OpenWeatherClasses\OpenWeatherRoot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\OpenWeatherClasses\Coord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\OpenWeatherClasses\Weather.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\OpenWeatherClasses\OWMain.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\OpenWeatherClasses\" />
   </ItemGroup>
 </Project>

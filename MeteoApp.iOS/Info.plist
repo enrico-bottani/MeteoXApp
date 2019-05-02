@@ -26,13 +26,15 @@
 	<string>MeteoApp</string>
 	<key>CFBundleIdentifier</key>
 	<string>ch.supsi.dti.isin.galliva.MeteoApp</string>
-	<key>CFBundleVersion</key>
-	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>MeteoApp</string>
+	<key>CFBundleExecutable</key>
+	<string></string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSAppTransportSecurity</key>
+	<true/>
 </dict>
 </plist>
