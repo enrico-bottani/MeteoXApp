@@ -21,16 +21,21 @@ namespace MeteoApp
         {
             Entries = new ObservableCollection<Entry>();
 
-            for (var i = 0; i < 10; i++)
+            var e = new Entry
             {
-                var e = new Entry
-                {
-                    ID = i,
-                    Name = "Entry " + i
-                };
+                ID = 0,
+                Name = "Chiasso"
+            };
 
-                Entries.Add(e);
-            }
+            Entries.Add(e);
+
+            e = new Entry
+            {
+                ID = 1,
+                Name = "Zürich"
+            };
+
+            Entries.Add(e);
         }
     }
 }

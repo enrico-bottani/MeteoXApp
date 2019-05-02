@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
+using MeteoApp.ViewModels;
 using Xamarin.Forms;
 
 namespace MeteoApp
@@ -35,7 +36,7 @@ namespace MeteoApp
             {
                 Navigation.PushAsync(new MeteoItemPage()
                 {
-                    BindingContext = e.SelectedItem as Entry
+                    BindingContext = new MeteoItemViewModel(e.SelectedItem as Entry)
                 });
             }
         }

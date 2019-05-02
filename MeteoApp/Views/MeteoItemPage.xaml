@@ -12,14 +12,14 @@
                     Android="0, 10, 0, 100" />
             </StackLayout.Margin>
 
-            <Label Text="Location" 
+            <Label Text="{Binding Entry.Name}"
                 FontSize="55"
                 HorizontalOptions="Center" 
                 VerticalOptions="Start" />
 
 
 
-            <Label Text="Rainy" 
+            <Label Text="{Binding WeatherMainDesc}" 
                  
                  FontSize="40"
                  VerticalOptions="Start"
