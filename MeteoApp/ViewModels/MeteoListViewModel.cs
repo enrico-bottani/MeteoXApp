@@ -36,6 +36,14 @@ namespace MeteoApp
             };
 
             Entries.Add(e);
+
+            e = new Entry
+            {
+                ID = 2,
+                Name = "Roma"
+            };
+
+            Entries.Add(e);
         }
     }
 }
