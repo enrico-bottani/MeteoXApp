@@ -1,4 +1,5 @@
 ﻿using MeteoApp.Models;
+using MeteoApp.Models.OpenWeatherClasses;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,28 @@ namespace MeteoApp.ViewModels
     class MeteoItemViewModel : BaseViewModel
     {
         Entry _entry;
-        
+
         String _weatherMainDesc = "Loading...";
+        OWMain _owMain;
 
         public Entry Entry {
             get { return _entry; }
             set { _entry = value;
+                OnPropertyChanged();
+            }
+        }
+        public OWMain OWMain{
+            get {
+                if (_owMain == null) {
+                    Console.WriteLine("OWMain isNull");
+                    return new OWMain(); }
+                Console.WriteLine("OWMain is not null");
+                return _owMain; 
+                }
+            set
+            {
+                Console.WriteLine("OWMain update: "+value.temp_min);
+                _owMain = value;
                 OnPropertyChanged();
             }
         }
@@ -46,6 +63,7 @@ namespace MeteoApp.ViewModels
             String jsonResponse = await httpClient.GetStringAsync(request);
             OpenWeatherRoot openWeatherRoot = JsonConvert.DeserializeObject<OpenWeatherRoot>(jsonResponse);
             WeatherMainDesc = openWeatherRoot.weather[0].main;
+            OWMain = openWeatherRoot.main;
             Console.WriteLine("Weather: " + openWeatherRoot.weather[0].main + " Temp-min:" + openWeatherRoot.main.temp_min);
         }
     }

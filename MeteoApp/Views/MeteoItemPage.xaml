@@ -4,15 +4,16 @@
             
              x:Class="MeteoApp.MeteoItemPage">
     <ContentPage.Content>
-        <StackLayout x:Name="MainLayout" Spacing="30">
+        <StackLayout x:Name="MainLayout">
 
             <StackLayout.Margin>
                 <OnPlatform x:TypeArguments="Thickness"
-                    iOS="0, 50, 0, 100"
-                    Android="0, 10, 0, 100" />
+                    iOS="0, 50, 0, 0"
+                    Android="0, 50, 0, 0" />
             </StackLayout.Margin>
 
-            <Label Text="{Binding Entry.Name}"
+            <Label 
+                Text="{Binding Entry.Name}"
                 FontSize="55"
                 HorizontalOptions="Center" 
                 VerticalOptions="Start" />
@@ -20,19 +21,19 @@
 
 
             <Label Text="{Binding WeatherMainDesc}" 
-                 
-                 FontSize="40"
-                 VerticalOptions="Start"
+                 Margin="0,30,0,0"
+                   FontSize="40"
                  HorizontalOptions="Center" />
 
-            <StackLayout Spacing="0" 
+            <StackLayout
+                Margin="0,30,0,0"
                 Orientation="Horizontal" 
                 VerticalOptions="Start">
-                <Label Text="7" 
+                <Label Text="{Binding OWMain.TempMin}" 
                        FontSize="40"
                        HorizontalTextAlignment="Center"
                        HorizontalOptions="FillAndExpand"/>
-                <Label Text="37"
+                <Label Text="{Binding OWMain.TempMax}"
                        FontSize="40" 
                        HorizontalTextAlignment="Center"
                        HorizontalOptions="FillAndExpand"/>
