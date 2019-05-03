@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Xamarin.Forms;
+using MeteoApp.Models;
 
 namespace MeteoApp
 {
     public partial class MeteoListPage : ContentPage
     {
         MeteoListViewModel ViewModel= new MeteoListViewModel();
+        
 
         public MeteoListPage()
         {
@@ -35,7 +37,7 @@ namespace MeteoApp
             {
                 Navigation.PushAsync(new MeteoItemPage()
                 {
-                    BindingContext = e.SelectedItem as Entry
+                    BindingContext = e.SelectedItem as Location
                 });
             }
         }
@@ -50,14 +52,14 @@ namespace MeteoApp
             // esempio: creo una nuova Entry partendo dal testo e la aggiungo al ViewModel
             if (pResult.Ok && !string.IsNullOrWhiteSpace(pResult.Text))
             {
-                var newEntry = new Entry
+                var newEntry = new Models.Location
                 {
                     ID = 99,
-
                     Name = pResult.Text
                 };
 
                 ViewModel.Entries.Add(newEntry);
+                App.Database.Insert(newEntry);
             }
         }
     }

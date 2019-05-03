@@ -1,11 +1,14 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MeteoApp.Models
 {
-    class Location
+    [Table("Items")]
+    public class Location
     {
+        [PrimaryKey, AutoIncrement, Column("_id")]
         public int ID { get; set; }
         public String Name { get; set; }
         public double Latitude { get; set; }

@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using MeteoApp.Models;
 
 namespace MeteoApp
 {
     public class MeteoListViewModel : BaseViewModel
     {
-        ObservableCollection<Entry> _entries;
+        ObservableCollection<Models.Location> _entries;
 
-        public ObservableCollection<Entry> Entries
+        
+
+        public ObservableCollection<Models.Location> Entries
         {
-            get { return _entries; }
+            get => _entries;
             set
             {
                 _entries = value;
@@ -19,18 +23,23 @@ namespace MeteoApp
 
         public MeteoListViewModel()
         {
-            Entries = new ObservableCollection<Entry>();
+            Entries = new ObservableCollection<Models.Location>();
 
-            for (var i = 0; i < 10; i++)
+            foreach (var l in App.Database.GetLocations())
             {
-                var e = new Entry
+                var e = new Models.Location
                 {
-                    ID = i,
-                    Name = "Entry " + i
+                    ID = l.ID,
+                    Name = l.Name
                 };
 
                 Entries.Add(e);
             }
+        }
+
+        private static List<Models.Location> getLocations()
+        {
+            return App.Database.GetLocations();
         }
     }
 }
