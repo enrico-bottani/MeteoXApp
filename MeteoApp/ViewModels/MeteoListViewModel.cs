@@ -10,7 +10,7 @@ namespace MeteoApp
         ObservableCollection<Models.Location> _entries;
 
         
-
+        // committami
         public ObservableCollection<Models.Location> Entries
         {
             get => _entries;
