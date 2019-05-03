@@ -45,8 +45,7 @@ namespace MeteoApp
             {
                 if (database == null)
                 {
-                    database = new LocationsDatabase(
-                      Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TodoSQLite.db3"));
+                    database = new LocationsDatabase();
                 }
                 return database;
             }
