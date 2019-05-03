@@ -36,5 +36,7 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSAppTransportSecurity</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Questa app richiede la localizzazione</string>
 </dict>
 </plist>

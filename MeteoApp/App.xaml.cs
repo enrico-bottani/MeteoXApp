@@ -12,7 +12,6 @@ namespace MeteoApp
         public App()
         {
             InitializeComponent();
-
             var nav = new NavigationPage(new MeteoListPage())
             {
                // BarBackgroundColor = Color.LightGreen,

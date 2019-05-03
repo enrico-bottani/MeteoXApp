@@ -61,7 +61,8 @@ namespace MeteoApp.ViewModels
         public MeteoItemViewModel(Entry entry)
         {
             Entry = entry;
-            urlRequest(entry.Name);
+            if (entry.HasLatLong) { urlRequest(entry.Lat, entry.Lon); }
+            else urlRequest(entry.Name);
         }
         public async void urlRequest(String place)
         {
@@ -69,6 +70,18 @@ namespace MeteoApp.ViewModels
             String APIKEY = "afd1e112193ba1e61ad067c236a0a590";
             String baseRequest = "api.openweathermap.org/data/2.5/weather?q=";
             String request = "https://" + baseRequest + place + "&units=metric&lang=it&appid=" + APIKEY;
+            Console.WriteLine(request);
+            String jsonResponse = await httpClient.GetStringAsync(request);
+            OpenWeatherRoot openWeatherRoot = JsonConvert.DeserializeObject<OpenWeatherRoot>(jsonResponse);
+            WeatherMainDesc = openWeatherRoot.weather[0].description;
+            OWMain = openWeatherRoot.main;
+        }
+        public async void urlRequest(double lat, double lon)
+        {
+            var httpClient = new HttpClient();
+            String APIKEY = "afd1e112193ba1e61ad067c236a0a590";
+            String baseRequest = "api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon;
+            String request = "https://" + baseRequest+ "&units=metric&lang=it&appid=" + APIKEY;
             Console.WriteLine(request);
             String jsonResponse = await httpClient.GetStringAsync(request);
             OpenWeatherRoot openWeatherRoot = JsonConvert.DeserializeObject<OpenWeatherRoot>(jsonResponse);
