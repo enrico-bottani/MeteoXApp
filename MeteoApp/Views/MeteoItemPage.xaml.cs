@@ -9,10 +9,10 @@ namespace MeteoApp
 {
     public partial class MeteoItemPage : ContentPage
     {
-        public MeteoItemPage()
+        public MeteoItemPage(String name)
         {
             InitializeComponent();
-           
+            this.Title = name;
         }
 
     }

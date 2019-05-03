@@ -34,10 +34,13 @@ namespace MeteoApp
         {
             if (e.SelectedItem != null)
             {
-                Navigation.PushAsync(new MeteoItemPage()
+                String selectedName = (e.SelectedItem as Entry).Name;
+                MeteoItemPage nav =new MeteoItemPage(selectedName)
                 {
                     BindingContext = new MeteoItemViewModel(e.SelectedItem as Entry)
-                });
+                };
+              
+                Navigation.PushAsync(nav);
             }
         }
         private async Task ShowPrompt(MeteoListPage instance)

@@ -15,6 +15,13 @@ namespace MeteoApp.Models.OpenWeatherClasses
                 return temp_max;
             }
         }
+        public double Temp
+        {
+            get
+            {
+                return temp;
+            }
+        }
         public OWMain()
         {
         }

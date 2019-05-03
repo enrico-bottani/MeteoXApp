@@ -6,7 +6,6 @@ namespace MeteoApp
     public class MeteoListViewModel : BaseViewModel
     {
         ObservableCollection<Entry> _entries;
-
         public ObservableCollection<Entry> Entries
         {
             get { return _entries; }
@@ -41,6 +40,14 @@ namespace MeteoApp
             {
                 ID = 2,
                 Name = "Roma"
+            };
+
+            Entries.Add(e);
+           
+             e = new Entry
+            {
+                ID = 3,
+                Name = "Miami"
             };
 
             Entries.Add(e);

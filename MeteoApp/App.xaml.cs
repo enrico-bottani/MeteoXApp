@@ -18,7 +18,6 @@ namespace MeteoApp
                // BarBackgroundColor = Color.LightGreen,
               //  BarTextColor = Color.White
             };
-
             MainPage = nav;
         }
 
