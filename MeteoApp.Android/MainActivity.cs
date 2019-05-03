@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Acr.UserDialogs;
+using Plugin.FirebasePushNotification;
 
 namespace MeteoApp.Droid
 {
@@ -22,6 +23,7 @@ namespace MeteoApp.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
             UserDialogs.Init(this);
+            FirebasePushNotificationManager.ProcessIntent(this, Intent);
         }
     }
 }
