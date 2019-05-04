@@ -9,6 +9,19 @@ namespace MeteoApp
 {
     public partial class App : Application
     {
+        private static LocationsDatabase database;
+
+        public static LocationsDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new LocationsDatabase();
+                }
+                return database;
+            }
+        }
         public App()
         {
             InitializeComponent();
@@ -35,19 +48,5 @@ namespace MeteoApp
             // Handle when your app resumes
         }
 
-        static LocationsDatabase database;
-
-        static LocationsDatabase Database
-        {
-            get
-            {
-                if (database == null)
-                {
-                    database = new LocationsDatabase(
-                      Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TodoSQLite.db3"));
-                }
-                return database;
-            }
-        }
     }
 }

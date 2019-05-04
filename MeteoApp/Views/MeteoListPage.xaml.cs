@@ -62,6 +62,7 @@ namespace MeteoApp
                 };
 
                 ViewModel.Entries.Add(newEntry);
+                App.Database.Insert(newEntry);
             }
         }
     }

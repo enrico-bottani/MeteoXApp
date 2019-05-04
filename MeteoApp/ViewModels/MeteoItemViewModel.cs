@@ -35,6 +35,9 @@ namespace MeteoApp.ViewModels
                 OnPropertyChanged();
             }
         }
+        String WeatherUrl { get { 
+        return "https://xamarin.com/content/images/pages/forms/example-app.png"; } 
+        } 
         String ToUpperFirstLetter(String source)
         {
             if (string.IsNullOrEmpty(source))

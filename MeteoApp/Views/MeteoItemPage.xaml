@@ -36,6 +36,8 @@
                        HorizontalTextAlignment="Center"
                        HorizontalOptions="FillAndExpand"/>
             </StackLayout>
+            <Image HeightRequest="300" WidthRequest="300" Source="https://img.icons8.com/ios-glyphs/480/000000/sun.png" />
+   
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

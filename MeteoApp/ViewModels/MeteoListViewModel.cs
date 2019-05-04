@@ -26,37 +26,18 @@ namespace MeteoApp
 #if __IOS__
             Xamarin.FormsMaps.Init();
 #endif
-            var e = new Entry
-            {
-                ID = 0,
-                Name = "Chiasso"
-            };
 
-            Entries.Add(e);
+            foreach(var i in App.Database.GetEntrys()) {
+                var e = new Entry
+                {
+                    ID = i.ID,
+                    Name = i.Name
+                };
 
-            e = new Entry
-            {
-                ID = 1,
-                Name = "Zürich"
-            };
+                Entries.Add(e);
+            }
 
-            Entries.Add(e);
 
-            e = new Entry
-            {
-                ID = 2,
-                Name = "Roma"
-            };
-
-            Entries.Add(e);
-           
-             e = new Entry
-            {
-                ID = 3,
-                Name = "Miami"
-            };
-
-            Entries.Add(e);
             GetLocation();
         }
         async void GetLocation()
